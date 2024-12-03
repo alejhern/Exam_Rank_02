@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 23:02:09 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/03 00:41:28 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:45:03 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	roasting(char *src)
+void	rostring(char *src)
 {
 	char	*pos_f_word;
 	char	*end_word;
@@ -45,7 +45,7 @@ void	roasting(char *src)
 int	main(int argc, char **argv)
 {
 	if (argc > 1)
-		roasting(argv[1]);
+		rostring(argv[1]);
 	ft_putchar('\n');
 	return (0);
 }

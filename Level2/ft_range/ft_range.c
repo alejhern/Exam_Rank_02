@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrange.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: amhernandez <alejhern@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 22:45:42 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/03 23:11:48 by alejhern         ###   ########.fr       */
+/*   Created: 2024/12/05 15:55:00 by amhernandez       #+#    #+#             */
+/*   Updated: 2024/12/05 16:06:25 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	*ft_rrange(int start, int end)
+int	*ft_range(int start, int end)
 {
 	int	size_arr;
-	int	index;
 	int	*range;
+	int	start_index;
 
-	size_arr = 0;
-	if (start > end)
-		size_arr = start - end + 1;
-	else
+	start_index = 0;
+	if (start <= end)
 		size_arr = end - start + 1;
-	range = (int *)malloc((size_arr) * sizeof(int));
+	else
+		size_arr = start - end + 1;
+	range = (int *)malloc(size_arr * sizeof(int));
 	if (!range)
 		return (NULL);
-	index = 0;
-	if (start > end)
+	if (start <= end)
 	{
-		while (start >= end)
-			range[index++] = end++;
+		while (start <= end)
+			range[start_index++] = start++;
 	}
 	else
 	{
-		while (start <= end)
-			range[index++] = end--;
+		while (start >= end)
+			range[start_index++] = start--;
 	}
 	return (range);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -52,7 +51,7 @@ int	main(void)
 
 	start = -1;
 	end = -5;
-	range = ft_rrange(start, end);
+	range = ft_range(start, end);
 	if (!range)
 		return (1);
 	range_iterator = 0;
@@ -65,3 +64,4 @@ int	main(void)
 	free(range);
 	return (0);
 }
+*/

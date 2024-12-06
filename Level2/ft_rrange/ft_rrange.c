@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 22:45:42 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/03 23:11:48 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/12/06 01:00:13 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	*ft_rrange(int start, int end)
 	}
 	return (range);
 }
-
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -65,3 +65,4 @@ int	main(void)
 	free(range);
 	return (0);
 }
+*/

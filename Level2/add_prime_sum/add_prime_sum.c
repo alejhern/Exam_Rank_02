@@ -6,38 +6,38 @@
 /*   By: amhernandez <alejhern@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:12:45 by amhernandez       #+#    #+#             */
-/*   Updated: 2024/12/05 23:00:40 by amhernandez      ###   ########.fr       */
+/*   Updated: 2024/12/06 00:59:09 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-static int      ft_isdigit(char c)
+static int	ft_isdigit(char c)
 {
-        return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 
-int     ft_atoi(char *src)
+int	ft_atoi(char *src)
 {
-        int     sign;
-        int     nb;
+	int	sign;
+	int	nb;
 
-        sign = 1;
-        nb = 0;
-        while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-                src++;
-        if (*src == '+' || *src == '-')
-        {
-                if (*src == '-')
-                        sign *= -1;
-                src++;
-        }
-        while (ft_isdigit(*src))
-        {
-                nb = nb * 10 + (*src - '0');
-                src++;
-        }
-        return (nb * sign);
+	sign = 1;
+	nb = 0;
+	while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
+		src++;
+	if (*src == '+' || *src == '-')
+	{
+		if (*src == '-')
+			sign *= -1;
+		src++;
+	}
+	while (ft_isdigit(*src))
+	{
+		nb = nb * 10 + (*src - '0');
+		src++;
+	}
+	return (nb * sign);
 }
 
 int	ft_prev_prime(int nb)
@@ -47,7 +47,7 @@ int	ft_prev_prime(int nb)
 	if (nb <= 2)
 		return (1);
 	x = 2;
-	nb --;
+	nb--;
 	while (nb % x)
 		x++;
 	if (x != nb)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   paramsum.c                                         :+:      :+:    :+:   */
+/*   rev_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: amhernandez <alejhern@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 02:51:15 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/06 03:03:29 by alejhern         ###   ########.fr       */
+/*   Created: 2024/12/06 13:12:05 by amhernandez       #+#    #+#             */
+/*   Updated: 2024/12/06 13:12:36 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,29 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-static void	ft_putnbr(int nb)
+static int	ft_strlen(char *str)
 {
-	long	nb_long;
+	int	len;
 
-	nb_long = nb;
-	if (nb_long < 0)
-	{
-		ft_putchar('-');
-		nb_long = -nb_long;
-	}
-	if (nb_long >= 10)
-		ft_putnbr(nb_long / 10);
-	ft_putchar(nb_long % 10 + '0');
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+void	rev_print(char *str)
+{
+	int	len;
+
+	len = ft_strlen(str);
+	while (len--)
+		ft_putchar(str[len]);
 }
 
 int	main(int argc, char **argv)
 {
-	ft_putnbr(argc - 1);
+	if (argc == 2)
+		rev_print(argv[1]);
 	ft_putchar('\n');
-	*argv = NULL;
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   paramsum.c                                         :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: amhernandez <alejhern@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 02:51:15 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/06 03:03:29 by alejhern         ###   ########.fr       */
+/*   Created: 2024/12/06 13:16:57 by amhernandez       #+#    #+#             */
+/*   Updated: 2024/12/06 13:27:46 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,33 @@ static void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-static void	ft_putnbr(int nb)
+static int	ft_isalpha(char c)
 {
-	long	nb_long;
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
 
-	nb_long = nb;
-	if (nb_long < 0)
+static char	get_char(char c)
+{
+	if (ft_isalpha(c))
 	{
-		ft_putchar('-');
-		nb_long = -nb_long;
+		if (c >= 'a' && c <= 'z')
+			return ('a' + (25 - (c - 'a')));
+		else
+			return ('A' + (25 - (c - 'A')));
 	}
-	if (nb_long >= 10)
-		ft_putnbr(nb_long / 10);
-	ft_putchar(nb_long % 10 + '0');
+	return (c);
+}
+
+void	alpha_mirror(char *str)
+{
+	while (*str)
+		ft_putchar(get_char(*str++));
 }
 
 int	main(int argc, char **argv)
 {
-	ft_putnbr(argc - 1);
+	if (argc == 2)
+		alpha_mirror(argv[1]);
 	ft_putchar('\n');
-	*argv = NULL;
 	return (0);
 }

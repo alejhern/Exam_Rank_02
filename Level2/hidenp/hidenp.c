@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   paramsum.c                                         :+:      :+:    :+:   */
+/*   hidenp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: amhernandez <alejhern@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 02:51:15 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/06 03:03:29 by alejhern         ###   ########.fr       */
+/*   Created: 2024/12/06 13:39:00 by amhernandez       #+#    #+#             */
+/*   Updated: 2024/12/06 13:39:05 by amhernandez      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,21 @@ static void	ft_putnbr(int nb)
 	ft_putchar(nb_long % 10 + '0');
 }
 
+int	hiddenp(char *s1, char *s2)
+{
+	while (*s2)
+	{
+		if (*s1 == *s2)
+			s1++;
+		s2++;
+	}
+	return (!*s1);
+}
+
 int	main(int argc, char **argv)
 {
-	ft_putnbr(argc - 1);
+	if (argc == 3)
+		ft_putnbr(hiddenp(argv[1], argv[2]));
 	ft_putchar('\n');
-	*argv = NULL;
 	return (0);
 }

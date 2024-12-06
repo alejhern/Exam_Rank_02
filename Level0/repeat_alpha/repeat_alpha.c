@@ -6,7 +6,7 @@
 /*   By: alejhern <alejhern@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 23:41:13 by alejhern          #+#    #+#             */
-/*   Updated: 2024/12/06 01:01:22 by alejhern         ###   ########.fr       */
+/*   Updated: 2024/12/06 03:07:00 by alejhern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	ft_puchar(char c)
 
 static int	ft_isalpha(char c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <='Z'));
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
 static int	get_alpha_pos(char c)
